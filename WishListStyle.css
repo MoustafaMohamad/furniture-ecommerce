@@ -1,0 +1,244 @@
+body {
+    margin: 0px;
+    padding: 0px;
+    background-color: #FFFFFF;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+/* header */
+
+
+header {
+    height: 100px;
+    width: 100%;
+    display: flex;
+    z-index: 1;
+    background-color: #FFFFFF;
+    position: fixed;
+    border: 1px solid #000;
+    background: #FFF;
+    box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.25);
+
+}
+
+#container {
+ 
+    width: 90%;
+    height: 70px;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-self: center;
+    align-items: center;
+    position: absolute;
+    left: 5%;
+}
+
+/* shap name and logo */
+
+#shopName{
+    width: 15%;
+    align-self: center;
+    display: flex;
+    justify-content: space-evenly;
+    align-self: center;
+}
+
+#shopName h1{
+    
+    font-family: 'Montserrat', sans-serif;
+    align-self: center;
+    margin: 0px;
+
+}
+#shopName img{
+    align-self: center;
+    
+}
+
+/* links WEBSITE in header */
+
+#collection{
+    width: 30%;
+    display: flex;
+    justify-content: space-evenly;
+    align-self: center;
+}
+
+#collection a{
+
+    color: #000;
+    font-size: 20px;
+    text-decoration: none;
+}
+
+#collection a:hover{
+    text-decoration: underline;
+    color: #B88E2F;
+}
+
+
+/* icons in header  */
+
+#akar-icon{
+    width: 10%;
+    height: 50px;
+    display: flex;
+    align-items: end;
+    justify-content: space-evenly;
+}
+
+#akar-icon a{
+    text-decoration: none;
+}
+
+
+#favorite-namber{
+    border-radius: 50%;
+    font-size: 16px;
+    font-weight: bold;
+    color: #000;
+    background: #B88E2F;
+    display: inline;
+    margin: 0px;
+    align-self: start;
+}
+
+
+
+#card-namber{
+    border-radius: 50%;
+    font-size: 16px;
+    font-weight: bold;
+    color: #000;
+    background: #B88E2F;
+    display: inline;
+    margin: 0px;
+    align-self: start;
+}
+
+/* log out */
+
+#logoutbtn{
+    height: 48px;
+    width: 90px;
+    font-size: 16px;
+    font-weight: 600;
+    color : #B88E2F;
+    background-color: #FFFFFF;
+    border: 2px solid #B88E2F;
+    text-align: center ;
+    border-radius: 24px;
+    
+}
+
+#logoutbtn:hover{
+    color: #ffffff;
+    background-color: #B88E2F;
+}
+
+
+
+
+
+
+
+#mask {
+    width: 100%;
+    height: 316px;
+    background-image: url(images/Rectangle\ 1.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+    top: 92px;
+}
+
+#title-page {
+    
+    position: absolute;
+    top: 20%;
+    left: 38%;
+    
+}
+
+#title-page h1 {
+    
+    font-size: 48px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    margin-bottom: 5px;
+   
+}
+
+#title-page pre {
+    position: relative;
+    left: 10%;
+    display: inline;
+    font-size: 18px;
+    font-family: 'Poppins', sans-serif;
+    
+   
+}
+
+#userRequests{
+    margin-top: 100px;
+}
+
+#previousRequests {
+    margin-top: 30px;
+}
+
+h2 {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #333; 
+}
+
+.tableRequests,
+.tablePreviousRequests {
+    width: 100%;
+    margin-top: 10px;
+    border-collapse: collapse;
+}
+
+.tableRequests th,
+.tablePreviousRequests th,
+.tableRequests td,
+.tablePreviousRequests td {
+    border: 1px solid #ddd; 
+    padding: 8px;
+    text-align: left;
+}
+
+.tableRequests th,
+.tablePreviousRequests th {
+    background-color: #f2f2f2; 
+}
+
+#requestsTableBody,
+#PreviousTableBody {
+    font-size: 16px;
+}
+
+
+
+.tableRequests tbody tr:hover,
+.tablePreviousRequests tbody tr:hover {
+    background-color: #f5f5f5; 
+    transition: background-color 0.3s;
+}
+
+
+
+

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin</title>
+    <link rel="stylesheet" href="CSS/Admin.css">
+</head>
+
+<body>
+    <header>
+
+        <div id="container">
+            <!-- SHOP NAME -->
+            <div id="shopName">
+                <img src="images/Meubel House_Logos-05.svg" width="50px" height="32px">
+                <h1> Furniro </h1>
+            </div>
+            <!-- COLLCETIONS ON WEBSITE -->
+            <div id="collection">
+                <div id="Home"><a href="Home.html"> Home </a></div>
+                <div id="Contact"><a href="Contact.html"> Contact </a></div>
+            </div>
+
+
+            <div id="logout">
+                <button id="logoutbtn">
+                    Logout
+                </button>
+            </div>
+        </div>
+    </header>
+
+
+
+    <div id="out">
+
+        <div id="myBody">
+            <div id="categoryForm">
+                <h2>Add Category</h2>
+                <br>
+                <form action="" onsubmit="event.preventDefault(); addCategory()">
+                    <label for="categoryName">Category Name:</label>
+                    <input type="text" id="categoryName" name="categoryName" required onblur="validationCategory()">
+                    <span id="validCategory"></span>
+                    <input id="inputFileToLoadCategory" type="file" onchange="encodeImageFileAsURLCategory();"
+                        required />
+
+                    <button type="submit" id="buttoncategory">Add Category</button>
+                </form>
+
+
+            </div>
+            <br>
+            <hr>
+            <h2 style="margin: 2%;">Categories</h2>
+            <table class="tableCategory">
+                <thead>
+                    <th>Category Name</th>
+                    <th>Number of Products</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </thead>
+                <tbody id="categoryTableBody">
+                </tbody>
+            </table>
+            <br>
+            <hr>
+            <br>
+            <div id="productForm">
+                <h2>Add Product</h2>
+                 <br>
+                <form action="" onsubmit=" event.preventDefault(); addProduct()">
+                    <label for="productName">Product Name:</label>
+                    <input type="text" id="productName" name="productName" required onblur="validationName()">
+                    <span id="validname"></span>
+                    <br>
+                    <label for="productImage">Product Image :</label>
+                    <input id="inputFileToLoad" type="file" onchange="encodeImageFileAsURL();" required />
+
+                    <label for="productCategory">Product Category:</label>
+                    <select id="productCategory" name="productCategory" required>
+                    </select>
+
+                    <label for="productPrice">Product Price:</label>
+                    <input type="number" id="productPrice" min="1" name="productPrice" required>
+
+                    <label for="productDescription">Product Description:</label>
+                    <textarea id="productDescription" name="productDescription" rows="4" required></textarea>
+
+                    <label for="productStock">Stock Quantity:</label>
+                    <input type="number" id="productStock" name="productStock" min="1" required>
+                    <button type="submit" id="ButtonForm">Add Product</button>
+
+                </form>
+
+
+            </div>
+            <br>
+            <hr>
+            <br>
+            <div>
+                <h2 style="margin: 2%;">Products</h2>
+                <table class="tableProduct" style="border: 2px;">
+                    <thead>
+                        <th>Index</th>
+                        <th>Product ID</th>
+                        <th>Product Name</th>
+                        <th>Product Price</th>
+                        <th>Product Category</th>
+                        <th>ProductDesc</th>
+                        <th>Stock Quantity</th>
+                        <th>update</th>
+                        <th>delete</th>
+
+                    </thead>
+                    <tbody id="tableBody">
+                    </tbody>
+                </table>
+
+            </div>
+
+
+        </div>
+        <br>
+        <hr>
+        <br>
+        <div id="userRequests">
+            <h2>User Requests</h2>
+            <br>
+            <table class="tableRequests" style="border-spacing: 0px; border-collapse: collapse;">
+                <thead>
+                    <th>User ID</th>
+                    <th>User Gmail</th>
+                    <th>Product ID</th>
+                    <th>Product Name</th>
+                    <th>Product Price</th>
+                    <th>stats</th>
+                    <th>Agree</th>
+                    <th>Refuse</th>
+                </thead>
+                <tbody id="requestsTableBody">
+                    <!-- User requests will be dynamically added here -->
+                </tbody>
+            </table>
+        </div>
+        <!-- id=previousRequests   -->
+        <br>
+        <hr>
+        <br>
+        <div id="previousRequests">
+            <h2>previous Requests</h2>
+            <br>
+            <table class="tablePreviousRequests" style="border-spacing: 0px; border-collapse: collapse;">
+                <thead>
+                    <th>User ID</th>
+                    <th>User Gmail</th>
+                    <th>Product ID</th>
+                    <th>Product Name</th>
+                    <th>Product Price</th>
+                </thead>
+                <tbody id="PreviousTableBody">
+                    <!-- User requests will be dynamically added here -->
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+    <script src="JS/Admin.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

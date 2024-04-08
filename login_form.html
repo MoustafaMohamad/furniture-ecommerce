@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<!-- Coding By CodingNepal - codingnepalweb.com -->
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Furniro</title>
+    <!-- favicon -->
+    <link rel="icon" href="images/Meubel House_Logos-05.svg" type="image/gif" sizes="16x16">
+    <!---Custom CSS File--->
+    <link rel="stylesheet" href="login_form.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <div id="container">
+            <!-- SHOP NAME -->
+            <div id="shopName">
+                <img src="images/Meubel House_Logos-05.svg" width="50px" height="32px">
+                <h1> Furniro </h1>
+            </div>
+        </div>
+    </header>
+
+
+    <div class="container">
+        <input type="checkbox" id="check">
+        <!-- login form start -->
+        <div class="login form">
+            <h1 id="header">Login</h1>
+            <form action="home.html" onsubmit="checkError(event)">
+                <div class="inputErorr">
+                    <input type="email" placeholder="Enter your email" name="email" id="userEmail" required>
+                    <span class="errorAlert" hidden id="emailError">! Enter your email</span>
+                    <span class="errorAlert" hidden id="emailNotFound">! Email Not Found</span>
+                </div>
+                <div class="inputErorr">
+                    <input type="password" placeholder="Enter your password" name="password" id="loginPassword"
+                        required>
+                    <span class="errorAlert" hidden id="loginPasswordError">! Not Valid password</span>
+                    <span class="errorAlert" hidden id="loginPasswordNotFound">! password Not Valid</span>
+                </div>
+                
+                <input type="submit" class="button" value="Login">
+            </form>
+            <div class="signup">
+                <span class="signup">Don't have an account?
+                    <label for="check">Signup</label>
+                </span>
+            </div>
+        </div>
+        <!-- login form End -->
+        <!-- registration form start -->
+        <div class="registration form">
+            <h1 id="header">Signup</h1>
+            <form action="#" onsubmit="checkError2(event)">
+                <div class="inputErorr">
+                    <input type="email" placeholder="Enter your email" name="email" id="userID" required>
+                    <span class="errorAlert" hidden id="idErorr">! Enter vaild email</span>
+                    <span class="errorAlert" hidden id="idExist">! This Email Exist</span>
+                </div>
+                <div class="inputErorr">
+                    <input type="password" placeholder="Create a password" name="password" id="userPassword" required>
+                    <span class="errorAlert" hidden id="passwordErorr">! password must be at least 6 charecter and must
+                        contain letters and numbers </span>
+                </div>
+                <div class="inputErorr">
+                    <input type="password" placeholder="Confirm your password" required id="userPassword2">
+                    <span class="errorAlert" hidden id="passwordErorr2">! password must be same</span>
+                </div>
+                <input type="submit" class="button" value="Signup">
+            </form>
+            <div class="signup">
+                <span class="signup">Already have an account?
+                    <label for="check">Login</label>
+                </span>
+            </div>
+        </div>
+        <!-- registration form start -->
+    </div>
+    <script src="https://kit.fontawesome.com/4a3b1f73a2.js"></script>
+    <script src="login_form.js"></script>
+</body>
+
+</html>

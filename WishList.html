@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Furniro Shop</title>
+    <link href="styleShop.css" rel="stylesheet">
+    <link rel="icon" href="images/Meubel House_Logos-05.svg" type="image/gif" sizes="16x16">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&family=Montserrat:wght@500&display=swap"
+        rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <header>
+
+        <div id="container">
+            <!-- SHOP NAME -->
+            <div id="shopName">
+                <img src="images/Meubel House_Logos-05.svg" width="50px" height="32px">
+                <h1> Furniro </h1>
+            </div>
+            <!-- COLLCETIONS ON WEBSITE -->
+            <div id="collection">
+                <div id="Home"><a href="Home.html"> Home </a></div>
+                <div id="Contact"><a href="Contact.html"> Contact </a></div>
+                <div id="admin"><a href="Admin.html"> Admin </a></div>
+            </div>
+
+            <!-- (ICON) -->
+            <div id="akar-icon">
+                <div id="like"><a href="#">
+                        <img id="black-heart" src="images/Vector (1).svg">
+
+                    </a>
+                </div>
+                <pre id="favorite-namber"> 0 </pre>
+                <div id="card"><a href="Shop.html">
+                        <img src="images/Vector.svg">
+
+                    </a>
+                </div>
+                <pre id="card-namber"> 0 </pre>
+            </div>
+            <div id="logout">
+                <button id="logoutbtn">
+                    Logout
+                </button>
+            </div>
+        </div>
+    </header>
+    <div id="mask">
+        <div id="title-page">
+            <h1>Wish List</h1>
+            <pre style="font-weight: 500;">Home   >   Wish List</pre>
+        </div>
+    </div>
+
+
+
+
+    <div id="userRequests">
+        <h2>User Requests</h2>
+        <table class="tableRequests" style="border-spacing: 0px; border-collapse: collapse;">
+            <thead>
+
+                <th>Product ID</th>
+                <th>Product Name</th>
+                <th>Product Price</th>
+
+            </thead>
+            <tbody id="requestsTableBody">
+
+            </tbody>
+        </table>
+    </div>
+
+
+    <script>
+
+        function displayUserfavorite() {
+            favoriteproducts = JSON.parse(localStorage.getItem("favoriteproducts"));
+            var requestsTableBody = document.getElementById('requestsTableBody');
+            requestsTableBody.innerHTML = '';
+
+            favoriteproducts.forEach(favorite => {
+                if (favorite.userid == localStorage.userNow) {
+                    requestsTableBody.innerHTML += `
+            <tr>
+                <td>${favorite.productid}</td>
+                <td>${favorite.productname}</td>
+                <td>${favorite.Productprice}</td>
+               
+            </tr>`;
+                }
+            });
+        }
+
+        displayUserfavorite();
+
+        function numberOfcart() {
+            if (localStorage.requestproducts != null) {
+                requestproducts = JSON.parse(localStorage.getItem("requestproducts"));
+            } else {
+                requestproducts = [];
+            }
+            if (localStorage.acceptedRequests != null) {
+                acceptedRequests = JSON.parse(localStorage.getItem("acceptedRequests"));
+            } else {
+                acceptedRequests = [];
+            }
+            var num1 = (requestproducts.filter(product => product.userid == localStorage.userNow)).length;
+            var num2 = (acceptedRequests.filter(product => product.userid == localStorage.userNow)).length;
+            document.getElementById("card-namber").innerHTML = ` ${num1 + num2} `;
+        }
+
+
+        numberOfcart();
+
+
+        function numberOffavorite() {
+            if (localStorage.favoriteproducts != null) {
+                favoriteproducts = JSON.parse(localStorage.getItem("favoriteproducts"));
+            } else {
+                favoriteproducts = [];
+            }
+            var num = (favoriteproducts.filter(product => product.userid == localStorage.userNow)).length;
+            document.getElementById("favorite-namber").innerHTML = ` ${num} `;
+        }
+
+
+        numberOffavorite();
+
+
+    </script>
+    <script src="script.js"></script>
+</body>
+
+</html>

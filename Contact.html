@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Furniro</title>
+    <link rel="stylesheet" href="styleContact.css">
+</head>
+
+<body>
+    <header>
+
+        <div id="banner">
+            <header>
+
+                <div id="container">
+                    <!-- SHOP NAME -->
+                    <div id="shopName">
+                        <img src="images/Meubel House_Logos-05.svg" width="50px" height="32px">
+                        <h1> Furniro </h1>
+                    </div>
+                    <!-- COLLCETIONS ON WEBSITE -->
+                    <div id="collection">
+                        <div id="Home"><a href="Home.html"> Home </a></div>
+                        <div id="admin"><a href="Admin.html"> Admin </a></div>
+                    </div>
+
+                    <!-- (ICON) -->
+                    <div id="akar-icon">
+                        <div id="like"><a href="WishList.html">
+                                <img id="black-heart" src="images/Vector (1).svg">
+
+                            </a>
+                        </div>
+                        <pre id="favorite-namber">  0  </pre>
+                        <div id="card"><a href="Shop.html">
+                                <img src="images/Vector.svg">
+
+                            </a>
+                        </div>
+                        <pre id="card-namber">  0  </pre>
+                    </div>
+
+                    <div id="logout">
+                        <button id="logoutbtn">
+                            Logout
+                        </button>
+                    </div>
+                </div>
+            </header>
+
+            <!-- mask -->
+            <div class="section-1">
+                <div id="mask2">
+                    <img src="images/Group 78.png"></img>
+                </div>
+                <div style="width: 644px;" class="contain">
+                    <p class="Get-In-Touch">Get In Touch With Us</p>
+                    <p class="secondP">For More Information About Our Product & Services. Please Feel Free To Drop Us An
+                        Email. Our Staff Always Be There To Help You Out. Do Not Hesitate!</p>
+                </div>
+            </div>
+        </div>
+        
+        <script>
+            function numberOfcart() {
+                if (localStorage.requestproducts != null) {
+                    requestproducts = JSON.parse(localStorage.getItem("requestproducts"));
+                } else {
+                    requestproducts = [];
+                }
+                if (localStorage.acceptedRequests != null) {
+                    acceptedRequests = JSON.parse(localStorage.getItem("acceptedRequests"));
+                } else {
+                    acceptedRequests = [];
+                }
+                var num1 = (requestproducts.filter(product => product.userid == localStorage.userNow)).length;
+                var num2 = (acceptedRequests.filter(product => product.userid == localStorage.userNow)).length;
+                document.getElementById("card-namber").innerHTML = ` ${num1 + num2} `;
+            }
+
+
+            numberOfcart();
+
+
+            function numberOffavorite() {
+                if (localStorage.favoriteproducts != null) {
+                    favoriteproducts = JSON.parse(localStorage.getItem("favoriteproducts"));
+                } else {
+                    favoriteproducts = [];
+                }
+                var num = (favoriteproducts.filter(product => product.userid == localStorage.userNow)).length;
+                document.getElementById("favorite-namber").innerHTML = ` ${num} `;
+            }
+
+
+            numberOffavorite();
+        </script>
+        <script src="script.js"></script>
+</body>
+
+</html>

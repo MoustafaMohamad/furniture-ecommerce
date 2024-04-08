@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Furniro</title>
+  <!-- favicon -->
+  <link rel="icon" href="images/Meubel House_Logos-05.svg" type="image/gif" sizes="16x16">
+  <!-- Fonts -->
+  <!-- CSS -->
+  <link href="css/style.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/product-page.css">
+</head>
+
+<body>
+  <header>
+
+    <div id="container">
+      <!-- SHOP NAME -->
+      <div id="shopName">
+        <img src="images/Meubel House_Logos-05.svg" width="50px" height="32px">
+        <h1> Furniro </h1>
+      </div>
+      <!-- COLLCETIONS ON WEBSITE -->
+      <div id="collection">
+        <div id="Home"><a href="Home.html"> Home </a></div>
+        <div id="Contact"><a href="Contact.html"> Contact </a></div>
+        <div id="admin"><a href="Admin.html"> Admin </a></div>
+      </div>
+
+      <!-- (ICON) -->
+      <div id="akar-icon">
+        <div id="like"><a href="WishList.html">
+            <img id="black-heart" src="images/Vector (1).svg">
+
+          </a>
+        </div>
+        <pre id="favorite-namber"> 0 </pre>
+        <div id="card"><a href="Shop.html">
+            <img src="images/Vector.svg">
+
+          </a>
+        </div>
+        <pre id="card-namber"> 0 </pre>
+      </div>
+      <div id="logout">
+        <button id="logoutbtn">
+          Logout
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- Left Column / Headphones Image -->
+    <div class="left-column">
+      <img data-image="red" class="active" src="images/image 8.png" alt="product image" id="imageSrc">
+    </div>
+
+
+    <!-- Right Column -->
+    <div class="right-column">
+
+      <!-- Product Description -->
+      <div class="product-description">
+        <span id="productCatogray" >Headphones</span>
+        <h1 id="productName" >Beats EP</h1>
+        <p id="productDescription" >The preferred choice of a vast range of acclaimed DJs. Punchy, bass-focused sound and high isolation. Sturdy
+          headband and on-ear cushions suitable for live performance</p>
+      </div>
+      <!-- Product Pricing -->
+      <div class="product-price">
+        <span id="productPrice" >148$</span>
+        <span> EGP</span>
+        <a href="#" class="cart-btn" id="cartBtn" >Add to cart</a>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    function numberOfcart() {
+      requestproducts = JSON.parse(localStorage.getItem("requestproducts"));
+      acceptedRequests = JSON.parse(localStorage.getItem("acceptedRequests"));
+      var num1 = (requestproducts.filter(product => product.userid == localStorage.userNow)).length;
+      var num2 = (acceptedRequests.filter(product => product.userid == localStorage.userNow)).length;
+      document.getElementById("card-namber").innerHTML = ` ${num1 + num2} `;
+    }
+
+    function numberOffavorite() {
+      favoriteproducts = JSON.parse(localStorage.getItem("favoriteproducts"));
+      var num = (favoriteproducts.filter(product => product.userid == localStorage.userNow)).length;
+      document.getElementById("favorite-namber").innerHTML = ` ${num} `;
+    }
+
+    numberOffavorite();
+    numberOfcart();
+  </script>
+  <script src="script.js"></script>
+  <script src="JS/product-page.js" ></script>
+</body>
+
+</html>

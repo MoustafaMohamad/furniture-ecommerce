@@ -1,0 +1,238 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0px;
+}
+#myBody .tableCategory,#productForm,.tableProduct,#userRequests,#previousRequests {
+    margin: 2%;
+}
+
+header {
+    height: 70px;
+    width: 100%;
+    display: flex;
+    z-index: 1;
+    background-color: #FFFFFF;
+    border: 1px solid #000;
+    background: #FFF;
+    box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.25);
+
+}
+
+#container {
+ 
+    width: 90%;
+    height: 70px;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-self: center;
+    align-items: center;
+    position: absolute;
+    left: 5%;
+}
+
+
+
+#shopName{
+    width: 15%;
+    align-self: center;
+    display: flex;
+    justify-content: space-evenly;
+    align-self: center;
+}
+
+#shopName h1{
+    
+    font-family: 'Montserrat', sans-serif;
+    align-self: center;
+    margin: 0px;
+
+}
+#shopName img{
+    align-self: center;
+    
+}
+
+
+
+#collection{
+    width: 30%;
+    display: flex;
+    justify-content: space-evenly;
+    align-self: center;
+}
+
+#collection a{
+
+    color: #000;
+    font-size: medium;
+    text-decoration: none;
+}
+
+#collection a:hover{
+    text-decoration: underline;
+    color: #B88E2F;
+}
+
+
+
+
+#akar-icon{
+    width: 10%;
+    height: 50px;
+    display: flex;
+    align-items: end;
+    justify-content: space-evenly;
+}
+
+#akar-icon a{
+    text-decoration: none;
+}
+
+
+#favorite-namber{
+    border-radius: 50%;
+    font-size: 16px;
+    font-weight: bold;
+    color: #000;
+    background: #B88E2F;
+    display: inline;
+    margin: 0px;
+    align-self: start;
+}
+
+
+
+#card-namber{
+    border-radius: 50%;
+    font-size: 16px;
+    font-weight: bold;
+    color: #000;
+    background: #B88E2F;
+    display: inline;
+    margin: 0px;
+    align-self: start;
+}
+
+
+#logoutbtn ,button{
+    font-size: 15px;
+    font-weight: 600;
+    color : #B88E2F;
+    padding: 8px 12px;
+    background-color: #FFFFFF;
+    border: 2px solid #B88E2F;
+    text-align: center ;
+    border-radius: 5px;
+    cursor: pointer;
+    
+}
+
+#logoutbtn:hover ,button:hover ,.tableRequests button:hover{
+    color: #ffffff;
+    background-color: #B88E2F;
+}
+
+
+
+.tableRequests button:active {
+    
+    background-color: #B88E2F;
+}
+
+#myBody{
+    margin-top: 30px;
+}
+
+
+
+
+#productForm,#categoryForm {
+    background-color: #FFFFFF;
+    max-width: 400px;
+    margin: 0px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+
+
+#validname{
+    margin: 0px;
+    color: red;
+    text-align: center;
+    
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+}
+
+input,
+textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 12px;
+    box-sizing: border-box;
+}
+
+
+
+
+.tableProduct,.tableCategory {
+    width: 100%;
+    margin-top: 10px;
+    border-collapse: collapse;
+}
+
+.tableRequests th ,
+.tablePreviousRequests th{
+    background-color: #f2f2f2; 
+}
+
+
+
+.tableRequests tbody tr:hover,
+.tablePreviousRequests tbody tr:hover {
+    background-color: #d4d4d4;
+}
+
+.tableProduct th, 
+.tableProduct td ,
+.tableCategory th,
+.tableCategory td,
+.tableRequests th, 
+.tableRequests td ,
+.tablePreviousRequests th ,
+.tablePreviousRequests td{
+    border: 1px solid #ddd; 
+    padding: 8px;
+    text-align: left;
+}
+
+.tableProduct th,
+.tableCategory th {
+    background-color: #f2f2f2; 
+}
+
+.tableProduct tbody tr:hover ,
+.tableCategory tbody tr:hover {
+    background-color: #cecbcb; 
+    
+}
+
+
+.tableRequests .tablePreviousRequests{
+    border-collapse: collapse;
+    width: 100%;
+    border: 2px solid #000;
+}
+
+
+h2 {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #333; 
+}

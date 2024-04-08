@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Furniro</title>
+    <link href="styleCategory.css" rel="stylesheet">
+    <link rel="icon" href="images/Meubel House_Logos-05.svg" type="image/gif" sizes="16x16">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&family=Montserrat:wght@500&display=swap"
+        rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <header>
+
+        <div id="container">
+            <!-- SHOP NAME -->
+            <div id="shopName">
+                <img src="images/Meubel House_Logos-05.svg" width="50px" height="32px">
+                <h1> Furniro </h1>
+            </div>
+            <!-- COLLCETIONS ON WEBSITE -->
+            <div id="collection">
+                <div id="Home"><a href="Home.html"> Home </a></div>
+                <div id="Contact"><a href="Contact.html"> Contact </a></div>
+                <div id="admin"><a href="Admin.html"> Admin </a></div>
+            </div>
+
+            <!-- (ICON) -->
+            <div id="akar-icon">
+                <div id="like"><a href="WishList.html">
+                        <img id="black-heart" src="images/Vector (1).svg">
+
+                    </a>
+                </div>
+                <pre id="favorite-namber"> 0 </pre>
+                <div id="card"><a href="Shop.html">
+                        <img src="images/Vector.svg">
+
+                    </a>
+                </div>
+                <pre id="card-namber"> 0 </pre>
+            </div>
+            <div id="logout">
+                <button id="logoutbtn">
+                    Logout
+                </button>
+            </div>
+        </div>
+    </header>
+    <div id="mask">
+        <div id="title-page">
+            <h1>Category</h1>
+            <pre style="font-weight: 500;">Home   >   Category</pre>
+        </div>
+    </div>
+
+
+    <!-- Products -->
+
+    <section id="Products-section">
+        <div id="Products">
+            <p id="CategoryName"></p>
+
+            <div id="ProductsCategory-items">
+
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- footer -->
+
+    <footer>
+        <hr style="color: #F5F5F5;">
+        <div id="footer-content">
+
+            <div id="footer-links">
+
+                <p>Funiro.</p>
+                <p>Links</p>
+
+                <p style="grid-row: span 4;">400 University Drive Suite 200 Coral Gables,
+                    <br>FL 33134 USA
+                </p>
+                <a href="Home.html">Home</a>
+
+                <a href="#">Shop</a>
+
+
+                <a href="Contact.html">Contact</a>
+
+
+            </div>
+            <hr style="color: #F5F5F5;">
+            <div id="version">
+                2023 furino. All rights reverved
+            </div>
+
+        </div>
+    </footer>
+
+
+    <script>
+
+        function numberOfcart() {
+            if (localStorage.requestproducts != null) {
+                requestproducts = JSON.parse(localStorage.getItem("requestproducts"));
+            } else {
+                requestproducts = [];
+            }
+            if (localStorage.acceptedRequests != null) {
+                acceptedRequests = JSON.parse(localStorage.getItem("acceptedRequests"));
+            } else {
+                acceptedRequests = [];
+            }
+            var num1 = (requestproducts.filter(product => product.userid == localStorage.userNow)).length;
+            var num2 = (acceptedRequests.filter(product => product.userid == localStorage.userNow)).length;
+            document.getElementById("card-namber").innerHTML = ` ${num1 + num2} `;
+        }
+
+
+        numberOfcart();
+
+
+        function numberOffavorite() {
+            if (localStorage.favoriteproducts != null) {
+                favoriteproducts = JSON.parse(localStorage.getItem("favoriteproducts"));
+            } else {
+                favoriteproducts = [];
+            }
+            var num = (favoriteproducts.filter(product => product.userid == localStorage.userNow)).length;
+            document.getElementById("favorite-namber").innerHTML = ` ${num} `;
+        }
+
+
+        numberOffavorite();
+
+        document.getElementById("CategoryName").innerHTML = `${localStorage.CategoryNow}`;
+
+
+        if (localStorage.users != null) {
+            const allUsers = JSON.parse(localStorage.getItem("users"));
+        } else {
+            const allUsers = [];
+        }
+
+        if (localStorage.productsStorge != null) {
+            productsParsed = JSON.parse(localStorage.getItem("productsStorge"));
+        } else {
+            productsParsed = [];
+        }
+
+
+        for (let index = 0; index < productsParsed.length; index++) {
+            if (productsParsed[index].category == localStorage.CategoryNow) {
+                // every product for category
+
+                const item = document.createElement("div");
+                item.style.width = "280px";
+                item.style.height = "522px";
+                item.style.position = "relative";
+                item.style.backgroundColor = "#F4F5F7";
+                item.style.borderRadius = "20px";
+
+                document.getElementById("ProductsCategory-items").appendChild(item);
+
+
+                const Productimage = document.createElement("img");
+                Productimage.style.width = "280px";
+                Productimage.style.height = "301px";
+                Productimage.style.borderRadius = "20px 20px 0px 0px"
+                Productimage.src = productsParsed[index].image;
+
+                item.appendChild(Productimage);
+
+                const Productname = document.createElement("p");
+                Productname.style.fontSize = "24px";
+                Productname.style.fontWeight = "600";
+                Productname.style.color = "#3A3A3A";
+                Productname.style.margin = "0px";
+                Productname.style.marginLeft = "5px";
+                Productname.innerHTML = productsParsed[index].name;
+
+                item.appendChild(Productname);
+
+                const Productdescription = document.createElement("p");
+                Productdescription.style.fontSize = "16px";
+                Productdescription.style.color = "#3A3A3A";
+                Productdescription.style.margin = "0px";
+                Productdescription.style.marginLeft = "5px";
+                Productdescription.innerHTML = productsParsed[index].description;
+
+                item.appendChild(Productdescription);
+
+                const Productprice = document.createElement("p");
+                Productprice.style.fontSize = "20px";
+                Productprice.style.fontWeight = "600";
+                Productprice.style.color = "#3A3A3A";
+                Productprice.style.marginLeft = "5px";
+                Productprice.innerHTML = productsParsed[index].price + " EGP";
+
+                item.appendChild(Productprice);
+
+                const ProductAddcart = document.createElement("button");
+                ProductAddcart.innerHTML = "Add to cart";
+                ProductAddcart.style.width = "185px";
+                ProductAddcart.style.height = "48px";
+                ProductAddcart.style.fontSize = "16px";
+                ProductAddcart.style.fontWeight = "600";
+                ProductAddcart.style.color = "#B88E2F";
+                ProductAddcart.style.backgroundColor = "#FFFFFF";
+                ProductAddcart.style.border = "0px";
+                ProductAddcart.style.textAlign = "center";
+                ProductAddcart.style.position = "absolute";
+                ProductAddcart.style.left = "14%";
+                ProductAddcart.style.top = "15%";
+                ProductAddcart.style.borderRadius = "24px";
+
+                const ProductShow = document.createElement("button");
+                ProductShow.innerHTML = "Show";
+                ProductShow.style.width = "80px";
+                ProductShow.style.height = "48px";
+                ProductShow.style.fontSize = "16px";
+                ProductShow.style.fontWeight = "600";
+                ProductShow.style.color = "#B88E2F";
+                ProductShow.style.backgroundColor = "#FFFFFF";
+                ProductShow.style.border = "0px";
+                ProductShow.style.textAlign = "center";
+                ProductShow.style.position = "absolute";
+                ProductShow.style.left = "14%";
+                ProductShow.style.top = "34%";
+                ProductShow.style.borderRadius = "24px";
+
+                const ProductAddfavorite = document.createElement("img");
+                ProductAddfavorite.style.width = "40px";
+                ProductAddfavorite.style.height = "40px";
+                ProductAddfavorite.src = "images/Vector (1).svg";
+                ProductAddfavorite.style.position = "absolute";
+                ProductAddfavorite.style.left = "60%";
+                ProductAddfavorite.style.top = "35%";
+
+
+
+                item.onmousemove = (event) => {
+
+                    Productimage.style.opacity = "0.7";
+                    item.appendChild(ProductAddcart);
+                    item.appendChild(ProductAddfavorite);
+                    item.appendChild(ProductShow);
+                };
+
+                ProductAddcart.onmousemove = (event) => {
+
+                    Productimage.style.opacity = "0.7";
+                    ProductAddcart.style.color = "#ffffff";
+                    ProductAddcart.style.backgroundColor = "#B88E2F";
+                    item.appendChild(ProductAddcart);
+                    item.appendChild(ProductAddfavorite);
+                    item.appendChild(ProductShow);
+                };
+
+                ProductAddfavorite.onmousemove = (event) => {
+
+                    Productimage.style.opacity = "0.7";
+                    ProductAddfavorite.src = "images/red-heart-icon.svg";
+                    item.appendChild(ProductAddcart);
+                    item.appendChild(ProductAddfavorite);
+                    item.appendChild(ProductShow);
+                };
+
+                ProductShow.onmousemove = (event) => {
+
+                    Productimage.style.opacity = "0.7";
+                    ProductShow.style.color = "#ffffff";
+                    ProductShow.style.backgroundColor = "#B88E2F";
+                    item.appendChild(ProductAddcart);
+                    item.appendChild(ProductAddfavorite);
+                    item.appendChild(ProductShow);
+                };
+
+
+                item.onmouseout = (event) => {
+                    item.style.backgroundColor = "#F4F5F7";
+                    Productimage.style.opacity = "1";
+                    item.removeChild(ProductAddcart);
+                    item.removeChild(ProductAddfavorite);
+                    item.removeChild(ProductShow);
+                };
+
+                ProductAddcart.onmouseout = (event) => {
+
+                    Productimage.style.opacity = "0.7";
+                    ProductAddcart.style.color = "#B88E2F";
+                    ProductAddcart.style.backgroundColor = "#FFFFFF";
+                    item.appendChild(ProductAddcart);
+                    item.appendChild(ProductAddfavorite);
+                    item.appendChild(ProductShow);
+                };
+
+                ProductAddfavorite.onmouseout = (event) => {
+
+                    Productimage.style.opacity = "0.7";
+                    ProductAddfavorite.src = "images/Vector (1).svg";
+                    item.appendChild(ProductAddcart);
+                    item.appendChild(ProductAddfavorite);
+                    item.appendChild(ProductShow);
+                };
+
+
+                ProductShow.onmouseout = (event) => {
+
+                    Productimage.style.opacity = "0.7";
+                    ProductShow.style.color = "#B88E2F";
+                    ProductShow.style.backgroundColor = "#FFFFFF";
+                    item.appendChild(ProductAddcart);
+                    item.appendChild(ProductAddfavorite);
+                    item.appendChild(ProductShow);
+                };
+
+
+
+                // add product to customer owner
+
+
+                ProductAddcart.onclick = function () {
+                    if (localStorage.userNow == null) {
+                        window.open("login_form.html", "_self");
+                    }
+                    else {
+                        var requestproducts;
+                        if (localStorage.requestproducts != null) {
+                            requestproducts = JSON.parse(localStorage.requestproducts);
+
+                        } else {
+                            requestproducts = [];
+                        }
+                        request = {
+                            userid: allUsers[localStorage.userNow].userid,
+                            usergmail: allUsers[localStorage.userNow].email,
+                            productid: productsParsed[index].id,
+                            productname: productsParsed[index].name,
+                            Productprice: productsParsed[index].price,
+                            agree: "pending"
+
+                        }
+                        requestproducts.push(request);
+                        localStorage.setItem('requestproducts', JSON.stringify(requestproducts));
+
+                    }
+                    numberOfcart();
+                    numberOffavorite();
+                };
+
+
+                ProductAddfavorite.onclick = function () {
+                    if (localStorage.userNow == null) {
+                        window.open("login_form.html", "_self");
+                    }
+                    else {
+                        var favoriteproducts;
+                        if (localStorage.favoriteproducts != null) {
+                            favoriteproducts = JSON.parse(localStorage.favoriteproducts);
+
+                        } else {
+                            favoriteproducts = [];
+                        }
+                        favorite = {
+                            userid: allUsers[localStorage.userNow].userid,
+                            productid: productsParsed[index].id,
+                            productname: productsParsed[index].name,
+                            Productprice: productsParsed[index].price
+                        }
+                        if (!favoriteproducts.some((e) => (e.productid === productsParsed[index].id) && (e.userid === allUsers[localStorage.userNow].userid))) {
+                            favoriteproducts.push(favorite);
+                        }
+                        localStorage.setItem('favoriteproducts', JSON.stringify(favoriteproducts));
+
+                    }
+
+                    numberOfcart();
+                    numberOffavorite();
+                };
+
+                ProductShow.onclick = function () {
+                    localStorage.ProductNow = productsParsed[index].id;
+                    window.open("product-page.html", "_self");
+                };
+            }
+        }
+
+
+    </script>
+    <script src="script.js"></script>
+</body>
+
+</html>
